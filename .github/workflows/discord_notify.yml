@@ -32,4 +32,4 @@ jobs:
             ```
             ${{ steps.get_content.outputs.file_content }}
             ```
-            **The Key changes every few days!**
+            **The key is updated every few days for security reasons! (Fuck qweptus)**
