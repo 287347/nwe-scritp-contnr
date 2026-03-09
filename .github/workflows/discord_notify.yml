@@ -23,13 +23,13 @@ jobs:
         uses: tsickert/discord-webhook@v6.0.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          content: "@here" # Aggiunge la notifica @here come nella foto
+          content: "<@&1480560143199371386>" # Aggiunge la notifica @here come nella foto
           username: "Key Updater"
-          embed-color: 15548997 # Rosso scuro (come il bordo nell'immagine)
-          embed-title: "🔒 | Key Updated!"
+          embed-color: 8140277 # Rosso scuro (come il bordo nell'immagine)
+          embed-title: "🔑 | Key Updated!"
           embed-description: |
-            **New Freemium Key:**
+            **New Temporary Key:**
             ```
             ${{ steps.get_content.outputs.file_content }}
             ```
-            **Key changes every week!** 🔔
+            **The Key changes evert few days!**
