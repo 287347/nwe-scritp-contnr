@@ -25,7 +25,7 @@ jobs:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           content: "<@&1480560143199371386>" # Aggiunge la notifica @here come nella foto
           username: "Key Updater"
-          embed-color: 8140277 # Rosso scuro (come il bordo nell'immagine)
+          embed-color: 15844367 # Rosso scuro (come il bordo nell'immagine)
           embed-title: "🔓 | Key Updated!"
           embed-description: |
             **New Temporary Key:**
