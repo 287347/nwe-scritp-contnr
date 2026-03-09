@@ -1,0 +1,34 @@
+name: Discord Notifier
+
+on:
+  push:
+    paths:
+      - 'percorso/del/tuo/file.txt' # Monitora solo il file specifico
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get Raw Content
+        id: get_content
+        run: |
+          # Legge il contenuto del file e lo salva come variabile
+          CONTENT=$(cat percorso/del/tuo/file.txt)
+          echo "file_content=$CONTENT" >> $GITHUB_OUTPUT
+
+      - name: Send Discord Webhook
+        uses: tsickert/discord-webhook@v6.0.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          embed-color: 15548997 # Colore rosso (come nella foto)
+          embed-title: "🔒 | Key Updated!"
+          embed-description: |
+            **New Freemium Key:**
+            ```
+            ${{ steps.get_content.outputs.file_content }}
+            ```
+            **Key changes every week!** 🔔
+          username: "Key Updater"
