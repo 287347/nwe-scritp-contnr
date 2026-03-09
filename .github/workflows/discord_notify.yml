@@ -26,10 +26,10 @@ jobs:
           content: "<@&1480560143199371386>" # Aggiunge la notifica @here come nella foto
           username: "Key Updater"
           embed-color: 8140277 # Rosso scuro (come il bordo nell'immagine)
-          embed-title: "🔑 | Key Updated!"
+          embed-title: "🔓 | Key Updated!"
           embed-description: |
             **New Temporary Key:**
             ```
             ${{ steps.get_content.outputs.file_content }}
             ```
-            **The Key changes evert few days!**
+            **The Key changes every few days!**
