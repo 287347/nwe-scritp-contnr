@@ -3,7 +3,7 @@ name: Discord Notifier
 on:
   push:
     paths:
-      - 'percorso/del/tuo/file.txt' # Monitora solo il file specifico
+      - 'chivae' # Si attiva solo quando modifichi questo file specifico
 
 jobs:
   notify:
@@ -15,15 +15,17 @@ jobs:
       - name: Get Raw Content
         id: get_content
         run: |
-          # Legge il contenuto del file e lo salva come variabile
-          CONTENT=$(cat percorso/del/tuo/file.txt)
+          # Legge il contenuto del file 'chivae' e lo prepara per Discord
+          CONTENT=$(cat chivae)
           echo "file_content=$CONTENT" >> $GITHUB_OUTPUT
 
       - name: Send Discord Webhook
         uses: tsickert/discord-webhook@v6.0.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          embed-color: 15548997 # Colore rosso (come nella foto)
+          content: "@here" # Aggiunge la notifica @here come nella foto
+          username: "Key Updater"
+          embed-color: 15548997 # Rosso scuro (come il bordo nell'immagine)
           embed-title: "🔒 | Key Updated!"
           embed-description: |
             **New Freemium Key:**
@@ -31,4 +33,3 @@ jobs:
             ${{ steps.get_content.outputs.file_content }}
             ```
             **Key changes every week!** 🔔
-          username: "Key Updater"
